@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { YekanBakh } from "@/utils/fonts";
+import Layout from "@/components/layout/Layout";
+
 
 
 
@@ -17,7 +19,9 @@ export default function RootLayout({
   return (
     <html lang="fa" dir="rtl">
       <body className={`${YekanBakh.className}`}>
-        {children}
+        <Layout>
+          {children}
+        </Layout>
       </body>
     </html>
   );
