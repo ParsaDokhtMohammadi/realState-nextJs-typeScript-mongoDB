@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { YekanBakh } from "@/utils/fonts";
 import Layout from "@/components/layout/Layout";
+import NextAuthProvider from "@/providers/NextAuthProvider";
 
 
 
@@ -19,9 +20,12 @@ export default function RootLayout({
   return (
     <html lang="fa" dir="rtl">
       <body className={`${YekanBakh.className}`}>
-        <Layout>
-          {children}
-        </Layout>
+        <NextAuthProvider>
+          <Layout>
+            {children}
+          </Layout>
+        </NextAuthProvider>
+
       </body>
     </html>
   );
