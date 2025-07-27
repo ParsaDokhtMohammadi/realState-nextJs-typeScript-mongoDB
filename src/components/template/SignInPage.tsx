@@ -3,10 +3,9 @@ import React, { useState } from 'react'
 import styles from "@/components/template/SignUpPage.module.css"
 import Link from 'next/link'
 import toast, { Toaster } from 'react-hot-toast'
-import { IResponse } from '@/types/Interfaces'
-import { redirect, useRouter } from 'next/navigation'
+import {  useRouter } from 'next/navigation'
 import { BeatLoader } from 'react-spinners'
-import { signIn, SignInResponse } from 'next-auth/react'
+import { signIn } from 'next-auth/react'
 
 
 const SignInPage = () => {
@@ -56,8 +55,9 @@ const SignInPage = () => {
                     
                    
                 </form>
-                <p>حساب کاربری ندارید؟</p>
+                <p>حساب کاربری ندارید؟
                 <Link href={"/signUp"}>ثبت نام</Link>
+                </p>
             </div>
         </>
     )

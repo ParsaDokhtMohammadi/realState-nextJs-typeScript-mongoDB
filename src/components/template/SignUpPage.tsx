@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import styles from "@/components/template/SignupPage.module.css"
 import Link from 'next/link'
 import toast, { Toaster } from 'react-hot-toast'
-import { IResponse} from '@/types/Interfaces'
+import { IResponse } from '@/types/Interfaces'
 import { useRouter } from 'next/navigation'
 import { BeatLoader } from 'react-spinners'
 
@@ -40,7 +40,6 @@ const SignUpPage = () => {
             <Toaster></Toaster>
             <div className={styles.form}>
                 <h4>
-                    
                     فرم ثبت نام
                 </h4>
                 <form action="">
@@ -70,8 +69,9 @@ const SignUpPage = () => {
                     
                    
                 </form>
-                <p>حساب کاربری دارید؟</p>
+                <p>حساب کاربری دارید؟
                 <Link href={"/signIn"}>ورود</Link>
+                </p>
             </div>
         </>
     )
