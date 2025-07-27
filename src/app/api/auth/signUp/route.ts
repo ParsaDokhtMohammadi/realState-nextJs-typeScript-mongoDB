@@ -22,7 +22,7 @@ export async function POST(req:NextRequest) {
             email:email,
             password:hashedPassword
         })
-        return NextResponse.json({message:"حساب کاربری ایجاد شد"})
+        return NextResponse.json({message:"حساب کاربری ایجاد شد",status:201})
     }
     catch (err){
         console.log(err)
