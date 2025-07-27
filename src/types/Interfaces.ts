@@ -8,3 +8,6 @@ export interface IResponse {
     status:number
     error?:string
 }
+export interface IChildren {
+    children: React.ReactNode
+}
