@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from "react"
+
 export interface IUser {
     id:Number|string
     email:string
@@ -29,4 +31,15 @@ export interface IProfile {
 export enum CATEGORY {
     VILLA = "villa",
     APARTMENT = "apartment",
+    STORE = "store",
+    OFFICE = "office"
+}
+export interface IProfileData {
+    profileData : IProfile
+    setProfileData : Dispatch<SetStateAction<IProfile>>
+}
+export interface ITextInput extends IProfileData {
+    title : string
+    name : keyof IProfile
+    textArea ?: boolean
 }

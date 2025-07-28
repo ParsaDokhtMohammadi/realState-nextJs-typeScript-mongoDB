@@ -3,6 +3,7 @@ import styles from "@/components/template/AddProfilePage.module.css"
 import { useState } from "react"
 import { CATEGORY, IProfile } from "@/types/Interfaces"
 import TextInput from "../module/TextInput"
+import RadioList from "../module/RadioList"
 
 const AddProfilePage = () => {
     const [profileData , setProfileData]=useState<IProfile>({
@@ -54,6 +55,7 @@ const AddProfilePage = () => {
       name="realState" 
       profileData={profileData} 
       setProfileData={setProfileData}></TextInput>
+      <RadioList profileData={profileData} setProfileData={setProfileData}></RadioList>
       <button className={styles.submit} onClick={submitHandler}>ثبت آگهی</button>
     </div>
   )
