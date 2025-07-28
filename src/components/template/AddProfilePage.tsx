@@ -5,6 +5,7 @@ import { CATEGORY, IProfile } from "@/types/Interfaces"
 import TextInput from "../module/TextInput"
 import RadioList from "../module/RadioList"
 import TextList from "../module/TextList"
+import CustomDatePicker from "../module/CustomDatePicker"
 
 const AddProfilePage = () => {
     const [profileData , setProfileData]=useState<IProfile>({
@@ -69,6 +70,7 @@ const AddProfilePage = () => {
       setProfileData={setProfileData} 
       type="roles"
       ></TextList>
+      <CustomDatePicker profileData={profileData} setProfileData={setProfileData}/>
       <button className={styles.submit} onClick={submitHandler}>ثبت آگهی</button>
     </div>
   )
