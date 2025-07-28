@@ -2,6 +2,7 @@ export interface IUser {
     id:Number|string
     email:string
     password:string
+    createdAt:Date
 }
 export interface IResponse {
     message?:string
