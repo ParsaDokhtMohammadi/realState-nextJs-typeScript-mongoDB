@@ -26,6 +26,7 @@ export interface IProfile {
         category: CATEGORY
         rules ?:string[]
         amenities ?: string[]
+        [key: string]: any;
 
 }
 export enum CATEGORY {
@@ -42,4 +43,10 @@ export interface ITextInput extends IProfileData {
     title : string
     name : keyof IProfile
     textArea ?: boolean
+}
+
+export interface ITextList extends IProfileData{
+    type:string
+    title:string   
+    
 }

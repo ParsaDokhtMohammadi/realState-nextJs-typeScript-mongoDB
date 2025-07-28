@@ -4,6 +4,7 @@ import { useState } from "react"
 import { CATEGORY, IProfile } from "@/types/Interfaces"
 import TextInput from "../module/TextInput"
 import RadioList from "../module/RadioList"
+import TextList from "../module/TextList"
 
 const AddProfilePage = () => {
     const [profileData , setProfileData]=useState<IProfile>({
@@ -56,6 +57,18 @@ const AddProfilePage = () => {
       profileData={profileData} 
       setProfileData={setProfileData}></TextInput>
       <RadioList profileData={profileData} setProfileData={setProfileData}></RadioList>
+      <TextList
+      title="امکانات رفاهی" 
+      profileData={profileData}
+      setProfileData={setProfileData} 
+      type="ameneties"
+      ></TextList>
+      <TextList
+      title="قوانین" 
+      profileData={profileData}
+      setProfileData={setProfileData} 
+      type="roles"
+      ></TextList>
       <button className={styles.submit} onClick={submitHandler}>ثبت آگهی</button>
     </div>
   )
