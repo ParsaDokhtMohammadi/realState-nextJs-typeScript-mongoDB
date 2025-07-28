@@ -2,6 +2,7 @@
 import styles from "@/components/template/AddProfilePage.module.css"
 import { useState } from "react"
 import { CATEGORY, IProfile } from "@/types/Interfaces"
+import TextInput from "../module/TextInput"
 
 const AddProfilePage = () => {
     const [profileData , setProfileData]=useState<IProfile>({
@@ -16,8 +17,45 @@ const AddProfilePage = () => {
         rules : [],
         amenities : []
     })
+    const submitHandler = ():void =>{
+      console.log(profileData);
+    }
   return (
-    <div>AddProfilePage</div>
+    <div className={styles.container}>
+      <h3>ثبت آگهی</h3>
+      <TextInput 
+      title="عنوان آگهی" 
+      name="title" 
+      profileData={profileData} 
+      setProfileData={setProfileData}></TextInput>
+      <TextInput 
+      title="توضیحات"
+      name="description" 
+      profileData={profileData} 
+      setProfileData={setProfileData}
+      textArea={true}></TextInput> 
+      <TextInput 
+      title="آدرس" 
+      name="location" 
+      profileData={profileData} 
+      setProfileData={setProfileData}></TextInput>
+      <TextInput 
+      title="شماره تماس" 
+      name="phone" 
+      profileData={profileData} 
+      setProfileData={setProfileData}></TextInput>
+      <TextInput 
+      title="قیمت(تومان)" 
+      name="price" 
+      profileData={profileData} 
+      setProfileData={setProfileData}></TextInput>
+      <TextInput 
+      title="بنگاه" 
+      name="realState" 
+      profileData={profileData} 
+      setProfileData={setProfileData}></TextInput>
+      <button className={styles.submit} onClick={submitHandler}>ثبت آگهی</button>
+    </div>
   )
 }
 

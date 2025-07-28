@@ -1,6 +1,10 @@
+import AddProfilePage from "@/components/template/AddProfilePage"
+
 const AddProfile = () => {
   return (
-    <div>AddProfile</div>
+    <>
+      <AddProfilePage></AddProfilePage>
+    </>
   )
 }
 
