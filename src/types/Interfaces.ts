@@ -12,3 +12,21 @@ export interface IResponse {
 export interface IChildren {
     children: React.ReactNode
 }
+
+export interface IProfile {
+        title:string
+        description:string
+        location:string
+        phone:string
+        price:string
+        realState:string
+        constructionDate:Date
+        category: CATEGORY
+        rules ?:string[]
+        amenities ?: string[]
+
+}
+export enum CATEGORY {
+    VILLA = "villa",
+    APARTMENT = "apartment",
+}
