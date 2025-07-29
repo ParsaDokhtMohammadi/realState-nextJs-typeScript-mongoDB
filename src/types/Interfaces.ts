@@ -1,7 +1,8 @@
+import { Types } from "mongoose"
 import { Dispatch, SetStateAction } from "react"
 
 export interface IUser {
-    id:Number|string
+    _id:Types.ObjectId
     email:string
     password:string
     createdAt:Date
@@ -27,6 +28,7 @@ export interface IProfile {
         rules ?:string[]
         amenities ?: string[]
         [key: string]: any;
+
 
 }
 export enum CATEGORY {
