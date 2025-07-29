@@ -20,11 +20,11 @@ const TextInput = ({title,name,profileData,setProfileData,textArea=false}:ITextI
     <div className={styles.container}>
         <p>{title}</p>
         {textArea ?(
-        <textarea name={name} value={profileData[name] as string}
+        <textarea name={name as string} value={profileData[name] as string}
         onChange={changeHandler}
         ></textarea>
         ):(
-        <input type='text' name={name} value={profileData[name] as string}
+        <input type='text' name={name as string} value={profileData[name] as string}
         onChange={changeHandler}
         ></input>
     )}

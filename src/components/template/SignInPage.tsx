@@ -4,8 +4,8 @@ import styles from "@/components/template/SignUpPage.module.css"
 import Link from 'next/link'
 import toast, { Toaster } from 'react-hot-toast'
 import {  useRouter } from 'next/navigation'
-import { BeatLoader } from 'react-spinners'
 import { signIn } from 'next-auth/react'
+import Loader from '../module/Loader'
 
 
 const SignInPage = () => {
@@ -48,7 +48,7 @@ const SignInPage = () => {
                         onChange={e => setPassword(e.target.value)}
                     />
                     {loading ?(
-                         <BeatLoader color='#304ffe' size={25} cssOverride={{margin:"auto"}}/>
+                        <Loader></Loader>
                     ):(
                         <button type='submit' onClick={signInHandler}>ورود</button>
                     )}

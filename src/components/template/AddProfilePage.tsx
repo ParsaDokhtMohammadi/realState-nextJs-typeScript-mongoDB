@@ -7,7 +7,7 @@ import RadioList from "../module/RadioList"
 import TextList from "../module/TextList"
 import CustomDatePicker from "../module/CustomDatePicker"
 import toast, { Toaster } from "react-hot-toast"
-import { BeatLoader } from "react-spinners" 
+import Loader from "../module/Loader"
 const AddProfilePage = () => {
   const [profileData, setProfileData] = useState<IProfile>({
     title: "",
@@ -88,7 +88,7 @@ const AddProfilePage = () => {
         ></TextList>
         <CustomDatePicker profileData={profileData} setProfileData={setProfileData} />
        {loading ?(
-        <BeatLoader color='#304ffe' size={25} cssOverride={{margin:"auto"}}/>
+        <Loader></Loader>
        ):(
          <button className={styles.submit} onClick={submitHandler}>ثبت آگهی</button>
        )}

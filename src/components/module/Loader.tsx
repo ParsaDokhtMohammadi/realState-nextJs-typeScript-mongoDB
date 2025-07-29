@@ -1,6 +1,10 @@
+import { BeatLoader } from "react-spinners"
+
 const Loader = () => {
   return (
-    <div>Loader</div>
+    <>
+    <BeatLoader color='#304ffe' size={25} cssOverride={{margin:"auto"}}/>   
+    </>
   )
 }
 

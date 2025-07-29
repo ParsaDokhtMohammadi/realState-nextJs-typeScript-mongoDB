@@ -5,7 +5,7 @@ import Link from 'next/link'
 import toast, { Toaster } from 'react-hot-toast'
 import { IResponse } from '@/types/Interfaces'
 import { useRouter } from 'next/navigation'
-import { BeatLoader } from 'react-spinners'
+import Loader from '../module/Loader'
 
 
 const SignUpPage = () => {
@@ -62,7 +62,7 @@ const SignUpPage = () => {
                         onChange={e => setRePassword(e.target.value)}
                     />
                     {loading ?(
-                         <BeatLoader color='#304ffe' size={25} cssOverride={{margin:"auto"}}/>
+                         <Loader></Loader>
                     ):(
                         <button type='submit' onClick={signUpHandler}>ثبت نام</button>
                     )}
