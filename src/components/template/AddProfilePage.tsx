@@ -16,12 +16,22 @@ const AddProfilePage = () => {
         price:"",
         realState:"",
         constructionDate : new Date(),
-        category:CATEGORY.VILLA,
+        category:CATEGORY.NULL,
         rules : [],
         amenities : []
     })
-    const submitHandler = ():void =>{
-      console.log(profileData);
+    const submitHandler = async():Promise<void>=>{
+      const res = await fetch("/api/profile",{
+        method:"POST",
+        body:JSON.stringify(profileData),
+        headers:{"Content-Type":"application/json"}
+      })
+      const data = await res.json()
+      if(data.error){
+        console.log("shit",data);
+      }else{
+        console.log("we did it",data);
+      }
     }
   return (
     <div className={styles.container}>

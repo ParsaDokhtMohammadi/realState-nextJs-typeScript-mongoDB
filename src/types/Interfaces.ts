@@ -35,7 +35,8 @@ export enum CATEGORY {
     VILLA = "villa",
     APARTMENT = "apartment",
     STORE = "store",
-    OFFICE = "office"
+    OFFICE = "office",
+    NULL = ""
 }
 export interface IProfileData {
     profileData : IProfile

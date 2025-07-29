@@ -32,7 +32,8 @@ const profileSchema = new Schema({
         required : true
     },
     category : {
-        type:CATEGORY,
+        type: String,
+        enum: ["villa", "apartment", "store","office"],
         required : true
     },
     ameneties : {
