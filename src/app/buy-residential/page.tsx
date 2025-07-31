@@ -7,10 +7,10 @@ import Profile from '@/models/Profile'
 
 const BuyResidentials = async() => {
   await connectDB()
-  const profiles: IProfile[] = await Profile.find()
-  console.log(profiles);
+  const data: IProfile[] = await Profile.find()
+  
   return (
-    <BuyResidentialsPage ></BuyResidentialsPage>
+    <BuyResidentialsPage data={data}></BuyResidentialsPage>
   )
 }
 
