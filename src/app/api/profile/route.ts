@@ -10,71 +10,71 @@ import { error } from "console";
 
 
 
-export async function POST(req:NextRequest) {
-    try{
+export async function POST(req: NextRequest) {
+    try {
         await connectDB()
-        const body:IProfile = await req.json() 
+        const body: IProfile = await req.json()
         const {
-            title , description , location , 
-            phone , price ,realState , constructionDate
-            ,ameneties , rules , category} = body
+            title, description, location,
+            phone, price, realState, constructionDate
+            , ameneties, rules, category } = body
         const session = await getServerSession(authOptions)
-        if(!session) {
-            return NextResponse.json({error:"لطفا وارد حساب کاربری خود شوید",status : 401})
+        if (!session) {
+            return NextResponse.json({ error: "لطفا وارد حساب کاربری خود شوید", status: 401 })
         }
-        const user:IUser|null = await User.findOne({email:session.user?.email})
-        if(!user){
-            return NextResponse.json({error:"کاربر یافت نشد",status:404})
+        const user: IUser | null = await User.findOne({ email: session.user?.email })
+        if (!user) {
+            return NextResponse.json({ error: "کاربر یافت نشد", status: 404 })
         }
-        if(
-            !title||!description||!location||
-            !phone||!price||!realState||
-            !constructionDate||!category
-        ) return NextResponse.json({error:"اطلاعات نامعتبر است",status:400})
-        
-        const newProfile:IProfile = await Profile.create({
-           title,description,location,phone,price:+price,realState,constructionDate
-           ,ameneties,rules,category,userId:new Types.ObjectId(user._id)
+        if (
+            !title || !description || !location ||
+            !phone || !price || !realState ||
+            !constructionDate || !category
+        ) return NextResponse.json({ error: "اطلاعات نامعتبر است", status: 400 })
+
+        const newProfile: IProfile = await Profile.create({
+            title, description, location, phone, price: +price, realState, constructionDate
+            , ameneties, rules, category, userId: new Types.ObjectId(user._id)
         })
         console.log(newProfile)
-        return NextResponse.json({message:"آگهی ایجاد شد" , status:201})
-        
-     }
-    catch(err){
+        return NextResponse.json({ message: "آگهی ایجاد شد", status: 201 })
+
+    }
+    catch (err) {
         console.log(err);
         return NextResponse.json(
-            {error:"مشکلی در سرور رخ داده است",status:500}
+            { error: "مشکلی در سرور رخ داده است", status: 500 }
         )
     }
 }
-export async function PATCH(req:NextResponse) {
-    try{
+export async function PATCH(req: NextResponse) {
+    try {
         await connectDB()
-        const body:IProfile = await req.json() 
+        const body: IProfile = await req.json()
         const {
-            _id,title , description , location , 
-            phone , price ,realState , constructionDate
-            ,ameneties , rules , category} = body
+            _id, title, description, location,
+            phone, price, realState, constructionDate
+            , ameneties, rules, category } = body
         const session = await getServerSession(authOptions)
-        if(!session) {
-            return NextResponse.json({error:"لطفا وارد حساب کاربری خود شوید",status : 401})
+        if (!session) {
+            return NextResponse.json({ error: "لطفا وارد حساب کاربری خود شوید", status: 401 })
         }
-         const user:IUser|null = await User.findOne({email:session.user?.email})
-        if(!user){
-            return NextResponse.json({error:"کاربر یافت نشد",status:404})
+        const user: IUser | null = await User.findOne({ email: session.user?.email })
+        if (!user) {
+            return NextResponse.json({ error: "کاربر یافت نشد", status: 404 })
         }
-        if(
-            !_id||!title||!description||!location||
-            !phone||!price||!realState||
-            !constructionDate||!category
-        ) return NextResponse.json({error:"اطلاعات نامعتبر است",status:400})
-        const profile:IProfile|null = await Profile.findOne({_id:_id})
-        
+        if (
+            !_id || !title || !description || !location ||
+            !phone || !price || !realState ||
+            !constructionDate || !category
+        ) return NextResponse.json({ error: "اطلاعات نامعتبر است", status: 400 })
+        const profile: IProfile | null = await Profile.findOne({ _id: _id })
+
         if (!profile) {
-        return NextResponse.json({ error: "آگهی یافت نشد", status: 404 });
+            return NextResponse.json({ error: "آگهی یافت نشد", status: 404 });
         }
-        if(!user._id.equals(profile?.userId)){
-            return NextResponse.json({error:"دست رسی شما به این آگهی محدود شده است",status:403})
+        if (!user._id.equals(profile?.userId)) {
+            return NextResponse.json({ error: "دست رسی شما به این آگهی محدود شده است", status: 403 })
         }
         profile.title = title
         profile.description = description
@@ -87,12 +87,24 @@ export async function PATCH(req:NextResponse) {
         profile.rules = rules
         profile.category = category
         profile.save()
-        return NextResponse.json({message:"آگهی با موفقیت ویرایش شد",status:200})
+        return NextResponse.json({ message: "آگهی با موفقیت ویرایش شد", status: 200 })
     }
-    catch(err){
-         console.log(err);
+    catch (err) {
+        console.log(err);
         return NextResponse.json(
-            {error:"مشکلی در سرور رخ داده است",status:500}
+            { error: "مشکلی در سرور رخ داده است", status: 500 }
         )
+    }
+}
+export async function GET(req: NextRequest) {
+    try {
+        await connectDB()
+        const profiles:IProfile[] = await Profile.find().select("-userId")
+        return NextResponse.json({data:profiles,status:200 })
+    }
+    catch (err) {
+        console.log(err);
+        return NextResponse.json(
+            { error: "مشکلی در سرور رخ داده است", status: 500 })
     }
 }
