@@ -12,7 +12,7 @@ import { sp } from "@/utils/replaceNumber"
 import Link from "next/link"
 
 
-const Card = ({data : {category,title,location,price}}:{data:IProfile}) => {
+const Card = ({data : {_id,category,title,location,price}}:{data:IProfile}) => {
 const icons: Record<CATEGORY, JSX.Element> = {
   [CATEGORY.VILLA]: <RiHome3Line />,
   [CATEGORY.APARTMENT]: <MdApartment />,
@@ -30,7 +30,7 @@ const icons: Record<CATEGORY, JSX.Element> = {
           {location}
         </p>
         <span>{sp(price) }  تومان</span>
-        <Link href={"/"}>مشاهده آگهی
+        <Link href={`buy-residential/${_id}`}>مشاهده آگهی
         <BiLeftArrowAlt/>
         </Link>
 
