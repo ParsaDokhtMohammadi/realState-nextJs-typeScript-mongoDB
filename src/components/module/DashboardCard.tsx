@@ -1,12 +1,14 @@
 "use client"
+import { useRouter } from 'next/navigation'
 import { IProfile } from '@/types/Interfaces'
 import Styles from "@/components/module/DashboardCard.module.css"
 import Card from './Card'
 import { AiOutlineDelete } from 'react-icons/ai'
 import { FiEdit } from 'react-icons/fi'
 const DashboardCard = ({data}:{data:IProfile}) => {
+  const router = useRouter()
   const editHandler = () => {
-
+    router.push(`/dashboard/my-profiles/${data._id}`)
   }
   const deleteHandler =()=>{
 
