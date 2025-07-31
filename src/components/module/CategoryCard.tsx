@@ -1,5 +1,4 @@
 import styles from "@/components/module/CategoryCard.module.css"
-import { CATEGORY } from "@/types/Interfaces"
 import Image from "next/image"
 import Link from "next/link"
 

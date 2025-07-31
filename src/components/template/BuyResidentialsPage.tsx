@@ -1,6 +1,7 @@
 import styles from "@/components/template/BuyResidentialsPage.module.css"
 import { IProfile } from "@/types/Interfaces"
 import Card from "../module/Card"
+import SideBar from "../module/SideBar"
 
 const BuyResidentialsPage = ({data}:{data:IProfile[]}) => {
 
@@ -8,7 +9,7 @@ const BuyResidentialsPage = ({data}:{data:IProfile[]}) => {
   return (
     <div className={styles.container}>
       <div className={styles.sidebar}>
-
+        <SideBar/>
       </div>
       <div className={styles.main}>
         {data.length ?
