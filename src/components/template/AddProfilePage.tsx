@@ -58,7 +58,7 @@ const AddProfilePage = ({ data }: { data: IProfile|undefined }) => {
       toast.error(data.error)
     }else if(data.message){
       toast.success(data.message)
-      router.refresh()
+      router.replace("/dashboard/my-profiles")
     }
 
   }

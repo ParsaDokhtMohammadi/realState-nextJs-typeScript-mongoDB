@@ -23,7 +23,7 @@ export async function DELETE(req: NextRequest, context: { params: { [key: string
             return NextResponse.json({ error: "دسترسی شما به این آگهی محدود شده است", status: 403 });
         }
         await Profile.deleteOne({_id:id})
-        return NextResponse.json({message:"آگهی موذد نظر حذف شد",status:200})
+        return NextResponse.json({message:"آگهی مورد نظر حذف شد",status:200})
     }
     catch (err) {
         console.log(err);
