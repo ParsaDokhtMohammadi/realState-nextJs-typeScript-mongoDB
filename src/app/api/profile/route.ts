@@ -6,7 +6,7 @@ import { authOptions } from "../auth/[...nextauth]/route";
 import User from "@/models/User";
 import Profile from "@/models/Profile";
 import { Types } from "mongoose";
-import { error } from "console";
+
 
 
 
