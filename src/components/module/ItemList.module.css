@@ -1,0 +1,8 @@
+ ul {
+  padding-right: 20px;
+  margin-bottom: 50px;
+}
+
+li::marker {
+  color: #304ffe;
+}

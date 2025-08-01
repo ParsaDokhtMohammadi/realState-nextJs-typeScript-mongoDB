@@ -4,6 +4,7 @@ import { CATEGORY, IProfile } from "@/types/Interfaces"
 import connectDB from '@/utils/connectDB'
 import Profile from '@/models/Profile'
 
+export const dynamic = 'force-dynamic'
 
 const BuyResidentials = async({searchParams}:{searchParams:{category:CATEGORY}}) => {
   
