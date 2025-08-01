@@ -5,6 +5,7 @@ export interface IUser {
     _id:Types.ObjectId
     email:string
     password:string
+    role : string
     createdAt:Date
 }
 export interface IResponse {
@@ -27,6 +28,7 @@ export interface IProfile {
         category: CATEGORY
         rules ?:string[]
         amenities ?: string[]
+        published : boolean
         [key: string]: any;
 
 
