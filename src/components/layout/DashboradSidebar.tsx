@@ -5,8 +5,9 @@ import { getServerSession } from "next-auth"
 import { authOptions } from "@/app/api/auth/[...nextauth]/route"
 import Link from "next/link"
 import LogoutButton from "../module/LogoutButton"
+import { ReactNode } from "react"
 
-const DashboradSidebar = async({ children }: IChildren) => {
+const DashboradSidebar = async( { children , email , role }: {children:ReactNode , email:string , role:string}) => {
   const session = await getServerSession(authOptions)
   return (
     <div className={styles.container}>

@@ -99,7 +99,7 @@ export async function PATCH(req: NextResponse) {
 export async function GET(req: NextRequest) {
     try {
         await connectDB()
-        const profiles:IProfile[] = await Profile.find().select("-userId")
+        const profiles:IProfile[] = await Profile.find({published:true}).select("-userId")
         return NextResponse.json({data:profiles,status:200 })
     }
     catch (err) {

@@ -1,4 +1,3 @@
-import { CATEGORY } from "@/types/Interfaces"
 import {Schema , model , models} from "mongoose"
 import User from "./User"
 
